@@ -5,7 +5,7 @@
 import tkinter as tk
 
 
-LARGE_FONT= ("Helvetica", 44)
+LARGE_FONT= ("Georgia", 44)
 
 
 class UFO(tk.Tk):
@@ -73,12 +73,18 @@ class CityPage(tk.Frame):
         cityEntry.config(width = 15,font = "Helvetica 28")
         cityEntry.pack()
 
+        #cityEntered is string of entered string in entry field
+        cityEntered = cityEntry.get()
+        searchButton = tk.Button(self, text = "Search")
+        searchButton.pack()
+
+
 class ShapePage(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         label = tk.Label(self, text="Shape Search", font=LARGE_FONT)
-        label.grid(row = 0, column = 1)
+        label.pack()
 
         #creating shape search widget
         #Using listbox for shape search for only 18
@@ -101,8 +107,11 @@ class ShapePage(tk.Frame):
         shapeList.insert(16, "Rectangle")
         shapeList.insert(17, "Sphere")
         shapeList.insert(18, "Triangle")
-        shapeList.grid(row = 1, column = 1)
+        shapeList.pack()
+
         
+        searchButton = tk.Button(self, text = "Search")
+        searchButton.pack()
         
 class DatePage(tk.Frame):
 
@@ -120,7 +129,9 @@ class DatePage(tk.Frame):
         month = tk.Spinbox(self, from_=1, to=12, font = "Helvetica 16").pack()
         dayLabel = tk.Label(self, text = "Day", font = "Helvetica 12").pack()
         day = tk.Spinbox(self, from_=1, to=31, font = "Helvetica 16").pack()
-        
+
+        searchButton = tk.Button(self, text = "Search")
+        searchButton.pack()
         
 app = UFO()
 app.mainloop()
