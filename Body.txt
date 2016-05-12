@@ -1,0 +1,72 @@
+#Create initial buttons to choose how to search
+        cityButton = tk.Button(root, text = "City", command = lambda: controller.show_frame(CityPage))
+        cityButton.grid(row = 1, column = 0)
+        shapeButton = tk.Button(root, text = "Shape", command = lambda: controller.show_frame(ShapePage))
+        shapeButton.grid(row = 1, column = 1)
+        dateButton = tk.Button(root, text = "Date", command = lambda: controller.show_frame(DatePage))
+        dateButton.grid(row = 1, column = 2)
+    
+    def client_exit(self):
+        exit()
+
+class CityPage(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        label = tk.Label(self, text ="UFO SIGHTINGS IN CALIFORNIA", font = "Helvetica 44)
+        
+        #creating city search widget
+        cityLabel = Label(root, text = "City Search", font = "Helvetica 32")
+        cityLabel.grid(row = 0, column = 0)
+        cityEntry = Entry(self.master)
+        cityEntry.config(width = 25,font = "Helvetica 28")
+        cityEntry.grid(row = 0, column = 1)
+
+class ShapePage(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        self.master = master
+        self.master.title("UFO SIGHTINGS IN CALIFORNIA")
+
+        #creating shape search widget
+        shapeLabel = Label(root, text = "Shape Search", font = "Helvetica 32")
+        shapeLabel.grid(row = 1, column = 0)
+        #Using listbox for shape search for only 18
+        shapeList = Listbox(root, font = "Helvetica 16")
+        shapeList.insert(1, "Chevron")
+        shapeList.insert(2, "Cigar")
+        shapeList.insert(3, "Circle")
+        shapeList.insert(4, "Cone")
+        shapeList.insert(5, "Cross")
+        shapeList.insert(6, "Cylinder")
+        shapeList.insert(7, "Diamond")
+        shapeList.insert(8, "Disk")
+        shapeList.insert(9, "Unknown")
+        shapeList.insert(10, "Egg")
+        shapeList.insert(11, "Fireball")
+        shapeList.insert(12, "Formation")
+        shapeList.insert(13, "Light")
+        shapeList.insert(14, "Other")
+        shapeList.insert(15, "Oval")
+        shapeList.insert(16, "Rectangle")
+        shapeList.insert(17, "Sphere")
+        shapeList.insert(18, "Triangle")
+        shapeList.grid(row = 1, column = 1)
+
+
+class DatePage(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        self.master = master
+        self.master.title("UFO SIGHTINGS IN CALIFORNIA")
+        
+        #creating spinbox for date
+        dateLabel = Label(root, text = "Date Search", font = "Helvetica 32")
+        dateLabel.grid(row = 2, column = 0)
+        #creating spinbox to select date by first month, then day
+        month = Spinbox(root, from_=1, to=12, state = NORMAL, font = "Helvetica 16").grid(row = 2, column =1)
+        monthLabel = Label(root, text = "Month", font = "Helvetica 12").grid(row = 2, column = 1)
+        day = Spinbox(root, from_=1, to=31, state = NORMAL, font = "Helvetica 16").grid(row = 2, column = 2)
+        dayLabel = Label(root, text = "Day", font = "Helvetica 12").grid(row = 2, column =2)
+        
+        #placing the button on my window
+        #quitButton.place(x=0, y=0)
